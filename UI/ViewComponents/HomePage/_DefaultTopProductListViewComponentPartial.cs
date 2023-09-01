@@ -25,7 +25,6 @@ namespace UI.ViewComponents.HomePage
 
                 var values = JsonConvert.DeserializeObject<List<ResultProductDtos>>(jsonData);
                 return View(values);
-
             }
             return View();
         }

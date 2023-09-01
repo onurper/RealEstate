@@ -7,10 +7,12 @@ namespace Api.Repositories.ServiceRep
     public class ServiceRep : IServiceRep
     {
         private readonly Context _context;
+
         public ServiceRep(Context context)
         {
             _context = context;
         }
+
         public void CreateService(CreateServiceDto createWhoWeAreDetailDto)
         {
             throw new NotImplementedException();

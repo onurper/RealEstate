@@ -12,6 +12,7 @@ namespace UI.ViewComponents.HomePage
         {
             _httpClientFactory = httpClientFactory;
         }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();

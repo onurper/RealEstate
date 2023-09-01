@@ -8,10 +8,12 @@ namespace UI.ViewComponents.HomePage
     public class _DefaultWhoWeAreViewComponentPartial : ViewComponent
     {
         private IHttpClientFactory _httpClientFactory;
+
         public _DefaultWhoWeAreViewComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();

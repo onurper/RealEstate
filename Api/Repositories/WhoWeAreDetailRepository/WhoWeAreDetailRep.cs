@@ -7,10 +7,12 @@ namespace Api.Repositories.WhoWeAreRepository
     public class WhoWeAreDetailRep : IWhoWeAreDetailRep
     {
         private readonly Context _context;
+
         public WhoWeAreDetailRep(Context context)
         {
             _context = context;
         }
+
         public async void CreateWhoWeAreDetail(CreateWhoWeAreDetailDto createWhoWeAreDetailDto)
         {
             string query = "insert into WhoWeAreDetail (Title,Subtitle,Description1,Description2) values (@title,@subTitle,@description1,@description2)";

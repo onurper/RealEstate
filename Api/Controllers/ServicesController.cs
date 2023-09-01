@@ -1,6 +1,4 @@
-﻿using Api.Repositories.Category;
-using Api.Repositories.ServiceRep;
-using Microsoft.AspNetCore.Http;
+﻿using Api.Repositories.ServiceRep;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
