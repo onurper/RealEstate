@@ -21,24 +21,28 @@ namespace Api.Controllers
             var values = await _categoryRep.GetAllCategoryAsync();
             return Ok(values);
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdCategory(int id)
         {
             var values = await _categoryRep.GetByIdCategory(id);
             return Ok(values);
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto categoryDto)
         {
             var values = await _categoryRep.CreateCategory(categoryDto);
             return Ok(values);
         }
+
         [HttpDelete]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var values = await _categoryRep.DeleteCategory(id);
             return Ok(values);
         }
+
         [HttpPut]
         public async Task<IActionResult> DeleteCategory(UpdateCategoryDto categoryDto)
         {

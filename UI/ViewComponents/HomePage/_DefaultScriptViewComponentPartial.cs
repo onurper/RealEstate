@@ -2,8 +2,9 @@
 
 namespace UI.ViewComponents.HomePage
 {
-    public class _DefaultScriptViewComponentPartial:ViewComponent
+    public class _DefaultScriptViewComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke() { return View(); }
+        public IViewComponentResult Invoke()
+        { return View(); }
     }
 }

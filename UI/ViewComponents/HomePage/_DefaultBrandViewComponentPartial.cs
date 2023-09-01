@@ -2,7 +2,7 @@
 
 namespace UI.ViewComponents.HomePage
 {
-    public class _DefaultBrandViewComponentPartial:ViewComponent
+    public class _DefaultBrandViewComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

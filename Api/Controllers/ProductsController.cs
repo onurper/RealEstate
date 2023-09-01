@@ -13,17 +13,17 @@ namespace Api.Controllers
         {
             _productRep = productRep;
         }
+
         [HttpGet]
         public async Task<IActionResult> ProductList()
         {
-
             var values = await _productRep.GetAllProductAsync();
             return Ok(values);
         }
+
         [HttpGet("ProductListWithCategory")]
         public async Task<IActionResult> ProductListWithCategory()
         {
-
             var values = await _productRep.GetAllProductWithCategoryAsync();
             return Ok(values);
         }

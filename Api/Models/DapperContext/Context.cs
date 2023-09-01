@@ -13,6 +13,7 @@ namespace Api.Models.DapperContext
             _configuration = configuration;
             _connectionString = _configuration.GetConnectionString("connection");
         }
+
         public IDbConnection CreateConnection()
         {
             return new SqlConnection(_connectionString);

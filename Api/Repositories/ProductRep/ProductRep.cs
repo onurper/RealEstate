@@ -12,6 +12,7 @@ namespace Api.Repositories.ProductRep
         {
             _context = context;
         }
+
         public async Task<List<ResultProductDto>> GetAllProductAsync()
         {
             string query = @"SELECT [ProductId]
@@ -39,10 +40,12 @@ namespace Api.Repositories.ProductRep
       ,P.[CoverImage]
       ,P.[City]
       ,P.[District]
-	  ,c.CategoryName
+	  ,c.[CategoryName]
+	  ,p.[Type]
+	  ,p.[Address]
   FROM [DbDapperRealEstate].[dbo].[Product] P
   INNER JOIN Category AS C ON C.CategoryId = p.ProductCategoryId";
-  //WHERE C.CategoryId = @CategoryId";
+            //WHERE C.CategoryId = @CategoryId";
 
             //var parameter = new DynamicParameters();
             //parameter.Add("@CategoryId", );

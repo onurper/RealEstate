@@ -10,7 +10,6 @@
   "use strict";
 
   $.fn.countUp = function( options ) {
-
     // Defaults
     var settings = $.extend({
         'time': 2000,
@@ -18,7 +17,6 @@
     }, options);
 
     return this.each(function(){
-
         // Store the object
         var $this = $(this);
         var $settings = settings;
@@ -40,7 +38,6 @@
 
             // Generate list of incremental numbers to display
             for (var i = divisions; i >= 1; i--) {
-
                 // Preserve as int if input was int
                 var newNum = parseInt(Math.round(num / divisions * i));
 
@@ -82,7 +79,5 @@
         // Perform counts when the element gets into view
         $this.waypoint(counterUpper, { offset: '100%', triggerOnce: true });
     });
-
   };
-
 })( jQuery );

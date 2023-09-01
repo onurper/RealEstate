@@ -1,12 +1,17 @@
 using Api.Models.DapperContext;
 using Api.Repositories.Category;
 using Api.Repositories.ProductRep;
+using Api.Repositories.ServiceRep;
+using Api.Repositories.WhoWeAreRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<Context>();
 builder.Services.AddTransient<ICategoryRep, CategoryRep>();
+builder.Services.AddTransient<IServiceRep, ServiceRep>();
 builder.Services.AddTransient<IProductRep, ProductRep>();
+builder.Services.AddTransient<IWhoWeAreDetailRep, WhoWeAreDetailRep>();
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

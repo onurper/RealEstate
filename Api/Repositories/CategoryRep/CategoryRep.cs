@@ -1,7 +1,6 @@
 ﻿using Api.Dtos.CategoryDtos;
 using Api.Models.DapperContext;
 using Dapper;
-using System.Xml.Linq;
 
 namespace Api.Repositories.Category
 {
@@ -89,7 +88,6 @@ namespace Api.Repositories.Category
             {
                 return Enumerable.Empty<ResultCategoryDto>().FirstOrDefault();
             }
-           
         }
 
         public async Task<int> UpdateCategory(UpdateCategoryDto categoryDto)
