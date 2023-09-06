@@ -1,5 +1,7 @@
 using Api.Models.DapperContext;
+using Api.Repositories.BottomGridRep;
 using Api.Repositories.Category;
+using Api.Repositories.PopulerLocationRep;
 using Api.Repositories.ProductRep;
 using Api.Repositories.ServiceRep;
 using Api.Repositories.WhoWeAreRepository;
@@ -10,7 +12,9 @@ builder.Services.AddTransient<Context>();
 builder.Services.AddTransient<ICategoryRep, CategoryRep>();
 builder.Services.AddTransient<IServiceRep, ServiceRep>();
 builder.Services.AddTransient<IProductRep, ProductRep>();
+builder.Services.AddTransient<IBottomGridRep, BottomGridRep>();
 builder.Services.AddTransient<IWhoWeAreDetailRep, WhoWeAreDetailRep>();
+builder.Services.AddTransient<IPopularLocationRep, PopularLocationRep>();
 
 builder.Services.AddControllers();
 
