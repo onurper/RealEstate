@@ -2,7 +2,7 @@
 using Api.Models.DapperContext;
 using Dapper;
 
-namespace Api.Repositories.WhoWeAreRepository
+namespace Api.Repositories.WhoWeAreRep
 {
     public class WhoWeAreDetailRep : IWhoWeAreDetailRep
     {

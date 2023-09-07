@@ -5,11 +5,11 @@ using UI.Dtos.WhoWeAreDetailDtos;
 
 namespace UI.ViewComponents.HomePage
 {
-    public class _DefaultWhoWeAreViewComponentPartial : ViewComponent
+    public class _DefaultWhoWeAreDetailViewComponentPartial : ViewComponent
     {
         private IHttpClientFactory _httpClientFactory;
 
-        public _DefaultWhoWeAreViewComponentPartial(IHttpClientFactory httpClientFactory)
+        public _DefaultWhoWeAreDetailViewComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -18,7 +18,7 @@ namespace UI.ViewComponents.HomePage
         {
             var client = _httpClientFactory.CreateClient();
             var client2 = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync("https://localhost:44370/api/WhoWeAreDetail");
+            var response = await client.GetAsync("https://localhost:44370/api/WhoWeAreDetails");
             var response2 = await client2.GetAsync("https://localhost:44370/api/Services");
 
             if (response.IsSuccessStatusCode && response2.IsSuccessStatusCode)

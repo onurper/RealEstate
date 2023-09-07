@@ -1,6 +1,6 @@
 ﻿using Api.Dtos.WhoWeAreDetailDtos;
 
-namespace Api.Repositories.WhoWeAreRepository
+namespace Api.Repositories.WhoWeAreRep
 {
     public interface IWhoWeAreDetailRep
     {

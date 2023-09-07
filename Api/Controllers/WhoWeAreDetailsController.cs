@@ -1,16 +1,16 @@
 ﻿using Api.Dtos.WhoWeAreDetailDtos;
-using Api.Repositories.WhoWeAreRepository;
+using Api.Repositories.WhoWeAreRep;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WhoWeAreDetailController : ControllerBase
+    public class WhoWeAreDetailsController : ControllerBase
     {
         private readonly IWhoWeAreDetailRep _whoWeAreDetailRep;
 
-        public WhoWeAreDetailController(IWhoWeAreDetailRep whoWeAreDetailRep)
+        public WhoWeAreDetailsController(IWhoWeAreDetailRep whoWeAreDetailRep)
         {
             _whoWeAreDetailRep = whoWeAreDetailRep;
         }

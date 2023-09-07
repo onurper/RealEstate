@@ -4,7 +4,8 @@ using Api.Repositories.Category;
 using Api.Repositories.PopulerLocationRep;
 using Api.Repositories.ProductRep;
 using Api.Repositories.ServiceRep;
-using Api.Repositories.WhoWeAreRepository;
+using Api.Repositories.TestimonialRep;
+using Api.Repositories.WhoWeAreRep;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddTransient<Context>();
 builder.Services.AddTransient<ICategoryRep, CategoryRep>();
 builder.Services.AddTransient<IServiceRep, ServiceRep>();
 builder.Services.AddTransient<IProductRep, ProductRep>();
+builder.Services.AddTransient<ITestimonialRep, TestimonialRep>();
 builder.Services.AddTransient<IBottomGridRep, BottomGridRep>();
 builder.Services.AddTransient<IWhoWeAreDetailRep, WhoWeAreDetailRep>();
 builder.Services.AddTransient<IPopularLocationRep, PopularLocationRep>();
