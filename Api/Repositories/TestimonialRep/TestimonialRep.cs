@@ -12,9 +12,9 @@ namespace Api.Repositories.TestimonialRep
         {
             _context = context;
         }
+
         public async Task<List<ResultTestimonialDto>> GetAllTestimonialAsync()
         {
-
             string query = @"SELECT [Id]
       ,[NameSurname]
       ,[Title]

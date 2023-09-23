@@ -36,7 +36,7 @@ namespace Api.Controllers
             return Ok(values);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var values = await _categoryRep.DeleteCategory(id);
@@ -44,7 +44,7 @@ namespace Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> DeleteCategory(UpdateCategoryDto categoryDto)
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryDto categoryDto)
         {
             var values = await _categoryRep.UpdateCategory(categoryDto);
             return Ok(values);
