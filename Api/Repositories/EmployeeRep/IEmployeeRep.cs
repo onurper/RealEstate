@@ -6,12 +6,12 @@ namespace Api.Repositories.EmployeeRep
     {
         Task<List<ResultEmployeeDto>> GetAllEmployeeAsync();
 
-        Task<GetByIdEmployeeDto> GetByIdEmployee(int id);
+        Task<GetByIdEmployeeDto> GetByIdEmployeeAsync(int id);
 
-        Task<int> CreateEmployee(CreateEmployeeDto createEmployeeDto);
+        Task<int> CreateEmployeeAsync(CreateEmployeeDto createEmployeeDto);
 
-        Task<int> UpdateEmployee(UpdateEmployeeDto updateEmployeeDto);
+        Task<int> UpdateEmployeeAsync(UpdateEmployeeDto updateEmployeeDto);
 
-        Task<int> DeleteEmployee(int id);
+        Task<int> DeleteEmployeeAsync(int id);
     }
 }

@@ -1,0 +1,51 @@
+﻿@using UI.Dtos.EmployeeDtos
+@model List<ResultEmployeeDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Personel Adı</th>
+                                <th scope="col">Ünvan</th>
+                                <th scope="col">Durum</th>
+                                <th scope="col">Sil</th>
+                                <th scope="col">Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Select((value, i) => new { i = i + 1, value }))
+                            {
+                                <tr>
+                                    <th scope="row">@item.i</th>
+                                    <td>@item.value.Name</td>
+                                    <td>@item.value.Title</td>
+                                    <td>
+                                        @if (item.value.Status == true)
+                                        {
+                                            <b>Aktif</b>
+                                        }
+                                        else
+                                        {
+                                            <b>Pasif</b>
+                                        }
+                                    </td>
+                                    <td><a href="/Employee/DeleteEmployee/@item.value.EmployeeId" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/Employee/UpdateEmployee/@item.value.EmployeeId" class="btn btn-outline-success">Güncelle</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Employee/CreateEmployee" class="btn btn-outline-info">Yeni Personel Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
