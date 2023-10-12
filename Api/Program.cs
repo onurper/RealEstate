@@ -5,6 +5,7 @@ using Api.Repositories.EmployeeRep;
 using Api.Repositories.PopulerLocationRep;
 using Api.Repositories.ProductRep;
 using Api.Repositories.ServiceRep;
+using Api.Repositories.StatisticsRep;
 using Api.Repositories.TestimonialRep;
 using Api.Repositories.WhoWeAreRep;
 
@@ -19,6 +20,7 @@ builder.Services.AddTransient<IBottomGridRep, BottomGridRep>();
 builder.Services.AddTransient<IWhoWeAreDetailRep, WhoWeAreDetailRep>();
 builder.Services.AddTransient<IPopularLocationRep, PopularLocationRep>();
 builder.Services.AddTransient<IEmployeeRep, EmployeeRep>();
+builder.Services.AddTransient<IStatisticsRep, StatisticsRep>();
 
 builder.Services.AddControllers();
 
