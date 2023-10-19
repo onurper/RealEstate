@@ -1,5 +1,4 @@
-﻿using Api.Dtos.EmployeeDtos;
-using Api.Models.DapperContext;
+﻿using Api.Models.DapperContext;
 using Dapper;
 
 namespace Api.Repositories.StatisticsRep
@@ -112,9 +111,12 @@ ORDER BY COUNT(ProductCategoryId) DESC";
 
         public async Task<string> CityNameByMaxProductCountAsync()
         {
-            string query = @"SELECT COUNT(*)
-FROM [DbDapperRealEstate].[dbo].[Product]
-WHERE Title LIKE '%Daire%'";
+            string query = @"SELECT TOP 1 City,
+	COUNT(*) AS Adet
+FROM Product
+GROUP BY City
+ORDER BY Adet DESC,
+	City ASC";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<string>(query);
@@ -124,9 +126,8 @@ WHERE Title LIKE '%Daire%'";
 
         public async Task<int> DiffCityCountAsync()
         {
-            string query = @"SELECT COUNT(*)
-FROM [DbDapperRealEstate].[dbo].[Product]
-WHERE Title LIKE '%Daire%'";
+            string query = @"SELECT COUNT(DISTINCT(City))
+FROM product";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<int>(query);
@@ -136,9 +137,13 @@ WHERE Title LIKE '%Daire%'";
 
         public async Task<string> EmployeeNameByMaxProductCountAsync()
         {
-            string query = @"SELECT COUNT(*)
-FROM [DbDapperRealEstate].[dbo].[Product]
-WHERE Title LIKE '%Daire%'";
+            string query = @"SELECT e.Name,
+	COUNT(p.EmployeeId) AS Adet
+FROM Product AS p
+INNER JOIN Employee AS e
+	ON e.EmployeeId = p.EmployeeId
+GROUP BY e.Name
+ORDER BY Adet DESC";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<string>(query);
@@ -148,9 +153,9 @@ WHERE Title LIKE '%Daire%'";
 
         public async Task<decimal> LastProductPriceAsync()
         {
-            string query = @"SELECT COUNT(*)
-FROM [DbDapperRealEstate].[dbo].[Product]
-WHERE Title LIKE '%Daire%'";
+            string query = @"SELECT TOP 1 Price
+FROM Product
+ORDER BY 1 DESC";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<decimal>(query);
@@ -160,9 +165,9 @@ WHERE Title LIKE '%Daire%'";
 
         public async Task<string> NewestBuildingYearAsync()
         {
-            string query = @"SELECT COUNT(*)
-FROM [DbDapperRealEstate].[dbo].[Product]
-WHERE Title LIKE '%Daire%'";
+            string query = @"SELECT TOP 1 BuildYear
+FROM ProductDetails
+ORDER BY BuildYear DESC";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<string>(query);
@@ -172,9 +177,9 @@ WHERE Title LIKE '%Daire%'";
 
         public async Task<string> OldestBuildingYearAsync()
         {
-            string query = @"SELECT COUNT(*)
-FROM [DbDapperRealEstate].[dbo].[Product]
-WHERE Title LIKE '%Daire%'";
+            string query = @"SELECT TOP 1 BuildYear
+FROM ProductDetails
+ORDER BY BuildYear ASC";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<string>(query);
@@ -184,9 +189,9 @@ WHERE Title LIKE '%Daire%'";
 
         public async Task<int> PassiveCategoryCountAsync()
         {
-            string query = @"SELECT COUNT(*)
-FROM [DbDapperRealEstate].[dbo].[Product]
-WHERE Title LIKE '%Daire%'";
+            string query = @"SELECT COUNT(CategoryId)
+FROM Category
+WHERE CategoryStatus = 0";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<int>(query);
@@ -196,9 +201,8 @@ WHERE Title LIKE '%Daire%'";
 
         public async Task<int> ProductCountAsync()
         {
-            string query = @"SELECT COUNT(*)
-FROM [DbDapperRealEstate].[dbo].[Product]
-WHERE Title LIKE '%Daire%'";
+            string query = @"SELECT COUNT(ProductId)
+FROM Product";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<int>(query);
